@@ -1,25 +1,50 @@
+// C function showing how to do time delay
 #include <stdio.h>
-#include <Windows.h>
+// To use time library of C
+#include <time.h>
 
-void removeChar(char arr[], size_t len, size_t pos);
 
-int main()
+void delay(int number_of_seconds)
 {
-    char arr [256] = "ABCD";
-    int i;
-    for (int i = 0; i < 10; i++)
-    {
-        printf(arr);
-        removeChar(arr, strlen(arr), 0);
-        Sleep(1000);
-        system("cls");
-        Sleep(1000);
-    }
-    getch();
-    return 0;
+    // Converting time into milli_seconds
+    int milli_seconds = 1000 * number_of_seconds;
+
+    // Stroing start time
+    clock_t start_time = clock();
+
+    // looping till required time is not acheived
+    while (clock() < start_time + milli_seconds)
+        ;
 }
-
-void removeChar (char arr[], size_t len, size_t pos)
+// Driver code to test above function
+int main(void)
 {
-    memmove(arr + pos, arr + (pos + 1), (len - pos) + 1);
+    while (1) {
+        // print A B C D to console, overwriting previous line
+        // and persist for at least one second
+        printf ("\rA B C D");
+        fflush(stdout);
+        delay(1);
+
+
+        // then clear line and persist for at least one second
+        printf ("\r  ");
+        fflush(stdout);
+        delay(1);
+
+        printf ("\r    ");
+        fflush(stdout);
+        delay(1);
+
+        printf ("\r      ");
+        fflush(stdout);
+        delay(1);
+
+        printf ("\r        ");
+        fflush(stdout);
+        delay(1);
+
+	}
+
+	return 0;
 }
