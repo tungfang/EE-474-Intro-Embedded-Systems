@@ -8,41 +8,46 @@ void delay(int number_of_seconds);
 // Driver code to test above function
 int main(void)
 {
-    int AC_delay, BD_delay, LCM;
+    // store user input of their desire delay rate
+    int AC_delay, BD_delay;
     
     printf("Please enter AC flashing rate: \n");
     scanf("%d", &AC_delay);
     printf("Please enter BD flashing rate: \n");
     scanf("%d", &BD_delay);
 
+    // initiate AC and BD rate counters
+    // letters appear iff their timer = 0
     int AC_count = 0; 
-    int BD_count = 0;
-    // note spec is unclear what offset B D should flash in relation to A and C
+    int BD_count = 0; 
+
 	while (1) {
+        // both timer are 0, print all
         if (AC_count == 0 && BD_count == 0)
         {
             printf("\rA B C D");
         } 
-        else if (AC_count == 0)
+        else if (AC_count == 0) // print only AC since only AC timer = 0
         {
             printf("\rA   C  ");
-            AC_count = 0;
+            AC_count = 0; // reset after print
         } 
-        else if (BD_count == 0)
+        else if (BD_count == 0) // print only BD since only BD timer = 0
         {
             printf("\r  B   D");
-            BD_count == 0;
+            BD_count == 0; // reset after print
         }
         else
         {
-            printf("\r       ");
+            printf("\r       "); // both timer aren't 0 so print empty string
         }
         
         AC_count++;
         BD_count++;
+        // reset timer when timer is greate the falshing rate
         if (AC_count > AC_delay) 
         {
-            AC_count = 0;
+            AC_count = 0; 
         }
         if (BD_count > BD_delay) 
         {

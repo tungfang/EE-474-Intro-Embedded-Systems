@@ -11,12 +11,13 @@ int main(void)
     int count = 0;
     // note spec is unclear what offset B D should flash in relation to A and C
 	while (1) {
+        // print all when reach both flash rate's least common multiple 
         if (count % 6 == 0) 
             printf("\rA B C D");
         else if (count % 6 == 1 || count % 6 ==5)
-            printf("\r       ");
+            printf("\r       "); 
         else if (count % 6 == 2 || count % 6 == 4)
-            printf("\rA   C  ");
+            printf("\rA   C  "); 
         else
             printf("\r  B   D");
         
