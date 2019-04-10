@@ -2,6 +2,7 @@
 #include <stdio.h>
 // To use time library of C
 #include <time.h>
+#include <stdbool.h>
 
 void delay(int number_of_seconds);
 
@@ -10,7 +11,8 @@ int main(void)
 {
     // store user input of their desire delay rate
     int AC_delay, BD_delay;
-    
+    bool flagAC, flagBD;
+
     printf("Please enter AC flashing rate: \n");
     scanf("%d", &AC_delay);
     printf("Please enter BD flashing rate: \n");
@@ -19,20 +21,22 @@ int main(void)
     // initiate AC and BD rate counters
     // letters appear iff their timer = 0
     int AC_count = 0; 
-    int BD_count = 0; 
+    int BD_count = 0;
+    flagAC = 1;
+    flagBD = 1;
 
 	while (1) {
         // both timer are 0, print all
-        if (AC_count == 0 && BD_count == 0)
+        if (flagAC == 1 && flagBD == 1)
         {
             printf("\rA B C D");
         } 
-        else if (AC_count == 0) // print only AC since only AC timer = 0
+        else if (flagAC == 1) // print only AC since only AC timer = 0
         {
             printf("\rA   C  ");
             AC_count = 0; // reset after print
         } 
-        else if (BD_count == 0) // print only BD since only BD timer = 0
+        else if (flagBD == 1) // print only BD since only BD timer = 0
         {
             printf("\r  B   D");
             BD_count == 0; // reset after print
@@ -45,13 +49,15 @@ int main(void)
         AC_count++;
         BD_count++;
         // reset timer when timer is greate the falshing rate
-        if (AC_count > AC_delay) 
+        if (AC_count == AC_delay) 
         {
             AC_count = 0; 
+            flagAC = !flagAC;
         }
-        if (BD_count > BD_delay) 
+        if (BD_count == BD_delay) 
         {
             BD_count = 0;
+            flagBD = !flagBD;
         }
         fflush(stdout);
         delay(1);
