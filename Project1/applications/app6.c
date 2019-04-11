@@ -39,6 +39,7 @@ void delay(int number_of_seconds)
     while (clock() < start_time + milli_seconds);
 }
 
+// Given the reference of the delay1 time for how long the data is shown in the console
 void f1Data(unsigned long *delay1)
 {
     printf("\rA B C D");
@@ -46,6 +47,7 @@ void f1Data(unsigned long *delay1)
     delay(*delay1);    
 }
 
+// Given the reference of the delay2 time for how long the data is disappearing from the console
 void f2Clear(unsigned long *delay2)
 {
     printf("\r       ");
