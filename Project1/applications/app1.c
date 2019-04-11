@@ -2,7 +2,7 @@
 #include <time.h>
 
 
-void delay(int number_of_seconds);
+void delay(unsigned long number_of_seconds);
 
 int main(void)
 {
@@ -19,10 +19,10 @@ int main(void)
 	return 0;
 }
 
-void delay(int number_of_seconds)
+void delay(unsigned long number_of_seconds)
 {
     // Converting time into milli_seconds
-    int milli_seconds = 1000 * number_of_seconds;
+    unsigned long milli_seconds = 1000 * number_of_seconds;
 
     // Stroing start time
     clock_t start_time = clock();

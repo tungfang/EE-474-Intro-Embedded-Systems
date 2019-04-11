@@ -4,13 +4,13 @@
 #include <time.h>
 #include <stdbool.h>
 
-void delay(int number_of_seconds);
+void delay(unsigned long number_of_seconds);
 
 // Driver code to test above function
 int main(void)
 {
     // store user input of their desire delay rate
-    int AC_delay, BD_delay;
+    unsigned long AC_delay, BD_delay;
     bool flagAC, flagBD;
 
     printf("Please enter AC flashing rate: \n");
@@ -20,8 +20,8 @@ int main(void)
 
     // initiate AC and BD rate counters
     // letters appear iff their timer = 0
-    int AC_count = 0; 
-    int BD_count = 0;
+    unsigned long AC_count = 0; 
+    unsigned long BD_count = 0;
     flagAC = 1;
     flagBD = 1;
 
@@ -66,10 +66,10 @@ int main(void)
 	return 0;
 }
 
-void delay(int number_of_seconds)
+void delay(unsigned long number_of_seconds)
 {
     // Converting time into milli_seconds
-    int milli_seconds = 1000 * number_of_seconds;
+    unsigned long milli_seconds = 1000 * number_of_seconds;
 
     // Storing start time
     clock_t start_time = clock();

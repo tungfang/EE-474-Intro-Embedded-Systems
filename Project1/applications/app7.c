@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-void delay(int number_of_seconds);
+void delay(unsigned long number_of_seconds);
 void f1Data(unsigned long delay1, unsigned long delay2, char str[]);
 void f2Clear(unsigned long delay2); 
 
@@ -31,10 +31,10 @@ int main(void)
 	return 0;
 }
 
-void delay(int number_of_seconds)
+void delay(unsigned long number_of_seconds)
 {
     // Converting time into milli_seconds
-    int milli_seconds = 1000 * number_of_seconds;
+    unsigned long milli_seconds = 1000 * number_of_seconds;
 
     // Storing start time
     clock_t start_time = clock();
