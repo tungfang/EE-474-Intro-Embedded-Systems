@@ -21,7 +21,7 @@ int main(void)
         fflush(stdout);
         delay(1);
 
-        printf ("\r    ");
+        printf ("\r   ");
         fflush(stdout);
         delay(1);
 
